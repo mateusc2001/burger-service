@@ -4,5 +4,5 @@ import app from "./app";
 // app.use();
 
 const port = 2020;
-app.listen(port);
+app.listen(process.env.PORT || 2020)
 console.log(`Ambiente de desenvolvimento rodando: http://localhost:${port}`)
