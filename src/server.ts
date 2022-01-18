@@ -7,7 +7,7 @@ const port = 2020;
 app.listen(process.env.PORT || port);
 
 app.get('/home', (req, res) => {
-    res.sendFile(`/Users/testemtech/projetos/portifolio/index.html`);
+    res.sendFile(`/Users/testemtech/projetos/portifolio/backend/front/index.html`);
 });
 
 app.get('/image/:fileName', (req, res) => {
