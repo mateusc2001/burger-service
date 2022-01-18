@@ -12,6 +12,6 @@ app.get('/home', (req, res) => {
 
 app.get('/image/:fileName', (req, res) => {
     const fileName = req.params.fileName;
-    res.sendFile(`/Users/testemtech/projetos/portifolio/assets/${fileName}`);
+    res.sendFile(`/Users/testemtech/projetos/portifolio/backend/assets/${fileName}`);
 });
 console.log(`Ambiente de desenvolvimento rodando: http://localhost:${port}`)
