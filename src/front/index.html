@@ -7,310 +7,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sans Burger</title>
 </head>
+<!-- https://shrouded-meadow-91021.herokuapp.com/ -->
+<!-- http://localhost:2020/ -->
 
 <body>
     <style>
-        * {
-            font-family: American Typewriter, serif;
-        }
 
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .parallax {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            /* The image used */
-            background-image: url("https://shrouded-meadow-91021.herokuapp.com/image/header-background2.jpg");
-
-            /* Create the parallax scrolling effect */
-            background-attachment: fixed;
-            background-position: 0 0px;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
-
-        header {
-            width: 100%;
-            height: 100px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        main {
-            width: 100%;
-            background-color: white;
-        }
-
-        .container-icone {
-            width: 20%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container-menu {
-            width: 30%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .container-contatos {
-            width: 50%;
-            padding-right: 20px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .ul-menu {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            list-style: none;
-        }
-
-        .li-menu {
-            margin: 0 5px;
-            padding: 10px 25px;
-            box-sizing: border-box;
-            background-color: rgba(83, 83, 83, 0.336);
-            color: white;
-            font-weight: 300;
-            transition: .3s;
-            cursor: pointer;
-        }
-
-        .li-menu:hover {
-            background-color: rgb(247, 189, 43);
-        }
-
-        .social-networks {
-            width: 25px;
-            margin: 0 5px;
-            transition: .2s;
-            cursor: pointer;
-        }
-
-        .social-networks:hover {
-            transform: scale(1.2);
-        }
-
-        .li-detail-hamburger {
-            margin: 15px 0;
-            font-size: 22px;
-            color: rgb(247, 189, 43);
-        }
-
-        .btn-pedir-ja {
-            padding: 10px 25px;
-            background-color: rgb(247, 189, 43);
-            color: white;
-            font-size: 28px;
-            font-weight: 300;
-            border: none;
-            box-shadow: 0px 0px 23px 1px rgba(0, 0, 0, 0.36);
-            transition: .3s;
-            cursor: pointer;
-        }
-
-        .btn-pedir-ja:hover {
-            transform: scale(1.1);
-        }
-
-        .container-promocoes {
-            width: 33%;
-            height: 300px;
-            padding-left: 30px;
-            padding-top: 30px;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-
-
-        .card-item-novidade {
-            width: 430px;
-            height: 350px;
-            overflow: hidden;
-            margin: 20px;
-            padding-bottom: 20px;
-            border-radius: 3px;
-            box-shadow: 0px 0px 23px 1px rgba(0, 0, 0, 0.0);
-            transition: .3s;
-        }
-
-        .card-item-novidade:hover {
-            transform: scale(1.01);
-            box-shadow: 0px 0px 23px 1px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-item-novidade {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @media only screen and (max-device-width: 1366px) {
-            .parallax {
-                background-attachment: scroll;
-            }
-        }
     </style>
 
     <!-- Container element -->
-    <div class="parallax">
-        <header>
-            <div class="container-icone">
-                <img src="https://themes.jozoor.com/html/joo/entertainment/02/assets/images/logo/logo.png">
-            </div>
-            <div class="container-menu">
-                <ul class="ul-menu">
-                    <li class="li-menu">Home</li>
-                    <li class="li-menu">Cardápio</li>
-                    <li class="li-menu">Contatos</li>
-                    <li class="li-menu">Localização</li>
-                </ul>
-            </div>
-            <div class="container-contatos">
-                <img class="social-networks" src="https://shrouded-meadow-91021.herokuapp.com/image/facebook.png">
-                <img class="social-networks" src="https://shrouded-meadow-91021.herokuapp.com/image/instagram.png">
-                <img class="social-networks" src="https://shrouded-meadow-91021.herokuapp.com/image/whatsapp.png">
-            </div>
-        </header>
-        <div style="width: 100%; height: 700px; display: flex; justify-content: flex-start; align-items: center;">
-            <div style="display: flex; flex-direction: column; padding-left: 120px; color: white;">
-                <span style="font-size: 100px;">
-                    Novo combo
-                </span>
-                <span style="font-size: 70px; color: rgb(247, 189, 43);">
-                    Hamburger +
-                </span>
-                <span style="font-size: 70px; color: rgb(247, 189, 43);">
-                    Batata +
-                </span>
-                <span style="font-size: 70px; color: rgb(247, 189, 43);">
-                    Refrigerante
-                </span>
-                <span style="font-size: 60px; color: white;">
-                    R$39,90
-                </span>
-            </div>
-        </div>
-        <main>
-            <div style="width: 100%; display: flex; justify-content: center; align-items: center;">
-                <div style="width: 50%; height: 100%; display: flex; justify-content: flex-end; align-items: center;">
-                    <img
-                        src="https://themes.jozoor.com/html/joo/entertainment/02/assets/images/global/introduction.png">
-                </div>
-                <div style="width: 50%; height: 100%; display: flex; align-items: center; justify-content: flex-start;">
-                    <div style="display: flex; flex-direction: column; align-items: center;">
-                        <span style="font-size: 48px; color: black">Ingredientes <span
-                                style="color: rgb(247, 189, 43); font-size: 60px;">100%</span> naturais</span>
-                        <ul style="width: 100%; color: gray;">
-                            <li class="li-detail-hamburger">Nulla accumsan metus ultrices eleifend gravi nulla site.
-                            </li>
-                            <li class="li-detail-hamburger">Lorem ipsum dolor sit amet, consectetur adipiscing elit
-                                amet.</li>
-                            <li class="li-detail-hamburger">Ornare vitae pulvinar hendrerit quis adipiscing.</li>
-                        </ul>
-                        <div style="width: 100%; display: flex; justify-content: flex-start;">
-                            <button class="btn-pedir-ja">Peça já</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="container-main-promocoes"
-                style="width: 100%; display: flex; justify-content: space-around; align-items: center;">
 
-            </div>
 
-            <div id="container-main-novidades"
-                style="width: 100%; display: flex; flex-direction: column; justify-content: flex-start; align-items: center;">
-                <h2 style="margin-top: 100px; font-size: 58px; font-weight: 400;">Novidades</h2>
-                <span style="color: gray; font-size: 25px; font-weight: 400;">Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit nulla accumsan metus.</span>
-                <div id="container-main-novidades-cards"
-                    style="width: 80%; margin-top: 50px; display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center;">
-
-                </div>
-
-            </div>
-        </main>
-
-        <footer
-            style="width: 100%; height: 400px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; background-color: rgb(32, 32, 32);">
-            <div style="width: 80%; height: 70%;">
-
-            </div>
-            <div style="width: 80%; height: 30%; display: flex; justify-content: space-between; align-items: center;">
-                <span style="width: 30%; color: white; font-weight: 200;">Mateus Camargo Rodrigues <span>&copy;</span> 2022. All Rights Reserved.</span>
-                <div style="display: flex; justify-content: center; width: 30%;">
-                    <img class="social-networks" src="https://shrouded-meadow-91021.herokuapp.com/image/facebook.png">
-                    <img class="social-networks" src="https://shrouded-meadow-91021.herokuapp.com/image/instagram.png">
-                    <img class="social-networks" src="https://shrouded-meadow-91021.herokuapp.com/image/whatsapp.png">
-                </div>
-                <div style="width: 30%; color: white; display: flex; justify-content: center; font-weight: 200;">
-                    <span style="margin: 0 5px;">About</span>
-                    <span style="margin: 0 5px;">Services</span>
-                    <span style="margin: 0 5px;"> Pricing</span>
-                    <span style="margin: 0 5px;">Contact</span>
-                </div>
-            </div>
-        </footer>
-    </div>
-
+    <!-- <script src="http://localhost:2020/script/script.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
+
+        function getItensPromocoes() {
+            return axios.get('http://localhost:2020/promocoes')
+                .catch((error) => window.alert(err));
+        }
+
         function addPromocoes() {
             const containerMainPromocoes = document.getElementById('container-main-promocoes');
 
-            const imagens = [
-                {
-                    img: "https://shrouded-meadow-91021.herokuapp.com/image/hamburger.jpg",
-                    description: "Nessa sexta-feira, hemburger 65% off",
-                    value: 20.90
-                },
-                {
-                    img: "https://shrouded-meadow-91021.herokuapp.com/image/suco.jpg",
-                    description: "Nessa sexta-feira 25% off",
-                    value: 10.90
-                },
-                {
-                    img: "https://shrouded-meadow-91021.herokuapp.com/image/dog.jpg",
-                    description: "Nessa sexta-feira 25% off",
-                    value: 10.90
-                },
-            ]
-
-            imagens
-                .map(item => `<div class="container-promocoes" style="background-image: url(${item.img})">
+            const imagens = getItensPromocoes()
+                .then((response) => {
+                    const res = response.data;
+                    res.map(item => `<div class="container-promocoes" style="background-image: url(${item.img})">
                     <div style="width: 30%">
                         <span style="color: rgb(247, 189, 43); font-size: 38px">Super</span>
                         <span style="color: white; font-size: 28px; font-weight: 300;">${item.description}</span>
                         <span style="color: rgb(247, 189, 43); font-size: 25px;">R$${item.value.toFixed(2)}</span>
                     </div>
                     </div>`)
-                .forEach(item => containerMainPromocoes.innerHTML += item);
-
+                        .forEach(item => containerMainPromocoes.innerHTML += item);
+                });
         }
 
         function addNovidades() {
             const containerCards = document.getElementById('container-main-novidades-cards');
             const novidades = [
                 {
-                    img: 'https://shrouded-meadow-91021.herokuapp.com/image/hamburger.jpg',
+                    img: 'http://localhost:2020/image/hamburger.jpg',
                     descricao: 'Duplo bacon',
                     valor: 29.9,
                     complemento: 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit Fuidhir Pinnately.',
@@ -320,7 +58,7 @@
                     }
                 },
                 {
-                    img: 'https://shrouded-meadow-91021.herokuapp.com/image/hamburger.jpg',
+                    img: 'http://localhost:2020/image/hamburger.jpg',
                     descricao: 'Duplo bacon',
                     valor: 29.9,
                     complemento: 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit Fuidhir Pinnately.',
@@ -330,7 +68,7 @@
                     }
                 },
                 {
-                    img: 'https://shrouded-meadow-91021.herokuapp.com/image/hamburger.jpg',
+                    img: 'http://localhost:2020/image/hamburger.jpg',
                     descricao: 'Duplo bacon',
                     valor: 29.9,
                     complemento: 'Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit Fuidhir Pinnately.',

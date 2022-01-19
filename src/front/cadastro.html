@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-container {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container-over {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 20px;
+            /* height: 400px; */
+            box-shadow: 0px 0px 20px -3px rgba(42, 42, 42, 0.37);
+            border-radius: 3px;
+        }
+
+        input {
+            margin: 0 10px;
+        }
+    </style>
+</head>
+
+<style>
+    .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+    }
+
+    .custom-file-input::before {
+        content: 'Selecione a imagem';
+        display: inline-block;
+        background: linear-gradient(top, #f9f9f9, #e3e3e3);
+        border: 1px solid #999;
+        border-radius: 3px;
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        text-shadow: 1px 1px #fff;
+        font-weight: 700;
+        font-size: 10pt;
+    }
+
+    .imagem-selecionada {
+        margin: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 200px;
+        border-radius: 5px;
+    }
+
+    .custom-file-input:hover::before {
+        border-color: black;
+    }
+
+    .custom-file-input:active::before {
+        background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+    }
+
+    .full-width {
+        width: 100%;
+    }
+
+    .input {
+        margin: 15px 0;
+    }
+</style>
+
+<body>
+    <section class="main-container">
+        <div class="container-over">
+            <form runat="server"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                <input accept="image/*" type='file' id="imgInp" class="custom-file-input" />
+                <button class="mdc-button mdc-button--raised">
+                    <span class="mdc-button__label" onclick="removerFoto()">Remover imagem</span>
+                </button>
+                <img id="blah" src="#" class="imagem-selecionada" />
+            </form>
+
+            <label class="mdc-text-field mdc-text-field--outlined full-width input">
+                <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="my-label-id">Descrição</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" id="descricao-input">
+            </label>
+
+            <label class="mdc-text-field mdc-text-field--outlined full-width input">
+                <span class="mdc-notched-outline">
+                    <span class="mdc-notched-outline__leading"></span>
+                    <span class="mdc-notched-outline__notch">
+                        <span class="mdc-floating-label" id="my-label-id">Valor</span>
+                    </span>
+                    <span class="mdc-notched-outline__trailing"></span>
+                </span>
+                <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id" id="valor-input">
+            </label>
+
+            <div class="full-width" style="display: flex; justify-content: flex-end;">
+                <div class="mdc-touch-target-wrapper">
+                    <button class="mdc-button mdc-button--raised">
+                        <span class="mdc-button__label" onclick="salvar()">Salvar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        let base64imagem = null;
+
+        const toBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+
+        document.getElementById('imgInp').onchange = async (evt) => {
+            const [file] = imgInp.files;
+            if (file) {
+                atualizarTela(await toBase64(file));
+            }
+        }
+
+        function removerFoto() {
+            base64imagem = null;
+            addStorage(null);
+        }
+
+        function addStorage(base64) {
+            window.localStorage.setItem('ls.imageBase64', base64);
+        }
+
+        function getStorage() {
+            return window.localStorage.getItem('ls.imageBase64');
+        }
+
+        function atualizarTela(base64) {
+            addStorage(base64);
+            document.getElementById('blah').src = base64;
+        }
+
+        function salvar() {
+            const descricaoInput = document.getElementById('descricao-input').value;
+            const valorInput = document.getElementById('valor-input').value;
+            console.log(getStorage());
+            console.log(descricaoInput);
+            console.log(valorInput);
+
+            const request = {
+                imagem: getStorage(),
+                descricao: descricaoInput,
+                valor: valorInput
+            }
+            return axios.post('http://localhost:2020/itens', request)
+                .catch((error) => window.alert(err));
+        }
+
+    </script>
+</body>
+
+</html>
