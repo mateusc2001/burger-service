@@ -9,10 +9,10 @@ class App {
 
     constructor() {
         this.express = express();
-        this.middlewares();
         this.express.use(express.json({ limit: '50mb' }));
         this.express.use(express.urlencoded({ limit: '50mb' }));
         this.express.use(bodyParser({limit: '150mb'}));
+        this.middlewares();
         this.database();
         this.routes();
     }

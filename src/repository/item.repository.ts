@@ -14,6 +14,6 @@ export class ItemRepository {
     }
 
     public static editItem(newItem: ItemPromocaoEditModel): any {
-        return itemData.updateOne(newItem);
+        return itemData.updateOne({ _id: newItem.id}, newItem);
     }
 }
