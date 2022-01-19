@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import route from './routes';
+import bodyParser from 'body-parser';
 
 class App {
     public express: express.Application;
@@ -9,6 +10,9 @@ class App {
     constructor() {
         this.express = express();
         this.middlewares();
+        this.express.use(express.json({ limit: '50mb' }));
+        this.express.use(express.urlencoded({ limit: '50mb' }));
+        this.express.use(bodyParser({limit: '150mb'}));
         this.database();
         this.routes();
     }
