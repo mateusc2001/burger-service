@@ -1,16 +1,16 @@
 import { Router } from 'express';
-import { ItemModelMapper } from './mapper/item-model.mapper';
-import { ItemPromocaoEditModelMapper } from './mapper/item-promocao-edit-model.mapper';
-import { ItemResponseMapper } from './mapper/item-response.mapper';
-import { ItemRepository } from './repository/item.repository';
+import { ItemModelMapper } from '../mapper/item-model.mapper';
+import { ItemResponseMapper } from '../mapper/item-response.mapper';
+import { ItemRepository } from '../repository/item.repository';
 class Routes {
     public route = Router();
 
     constructor() {
 
         this.route.get('/itens', async (req, res) => {
+            const comImagem: boolean = !!req.query.imagem;
             const itensResponse = (await ItemRepository.getItens())
-                .map(item => ItemResponseMapper.mapTo(item));
+                .map(item => ItemResponseMapper.mapTo(item, comImagem));
 
             res.json(itensResponse);
         });
@@ -22,7 +22,7 @@ class Routes {
         });
 
         this.route.put('/item/promocao', async (req, res) => {
-            const itemEditModel = ItemPromocaoEditModelMapper.mapTo(req.body);
+            const itemEditModel = ItemModelMapper.mapTo(req.body);
             res.json(await ItemRepository.editItem(itemEditModel));
         });
     }

@@ -1,7 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import route from './routes';
+import route from './routes/routes';
+import cardapioRoute from './routes/cardapio.routes';
 import bodyParser from 'body-parser';
 
 class App {
@@ -32,7 +33,8 @@ class App {
     }
 
     private routes(): void {
-        this.express.use(route);
+        this.express.use('/promocao', route);
+        this.express.use('/cardapio', cardapioRoute);
     }
 }
 
