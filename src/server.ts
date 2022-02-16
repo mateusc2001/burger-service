@@ -9,7 +9,7 @@ const port = 2020;
 app.listen(process.env.PORT || port);
 
 app.get('/home', (req, res) => {
-    res.sendFile(`${__dirname}/front/index.html`);
+    res.sendFile(`${__dirname}/front/teste.html`);
 });
 
 app.get('/cadastro/promocoes', (req, res) => {
