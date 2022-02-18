@@ -9,7 +9,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- <link rel="stylesheet" href="style.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 
     <style>
         body {
@@ -29,6 +39,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                width: 90% !important;
             }
 
             .titulo-primeiro-simule-fgts {
@@ -76,7 +87,7 @@
             }
 
             .como-obter-responsive {
-                flex-direction: column;
+                flex-direction: column-reverse;
                 align-items: center;
             }
 
@@ -107,12 +118,12 @@
             }
 
             .card-avaliacao {
-                width: 80% !important;
-                margin: 20px 0;
+                width: 100% !important;
+                margin: 20px 10px !important;
             }
 
             .container-o-que-dizem-sobre-nos {
-                width: 80% !important;
+                width: 90% !important;
                 margin-bottom: 40px;
                 display: flex;
                 flex-direction: column;
@@ -213,6 +224,38 @@
             .titulo-primeiro-simule-fgts {
                 font-size: 20px !important;
             }
+
+            .carroseul-depoimentos-desktop {
+                display: none !important;
+            }
+
+            .carroseul-depoimentos-mobile {
+                display: block !important;
+            }
+
+            .segunda-pessoa-desktop {
+                display: none!important;
+            }
+
+            .segunda-pessoa-mobile {
+                display: block!important;
+            }
+        }
+
+        .segunda-pessoa-desktop {
+            display: block;
+        }
+
+        .segunda-pessoa-mobile {
+            display: none;
+        }
+
+        .carroseul-depoimentos-desktop {
+            display: flex;
+        }
+
+        .carroseul-depoimentos-mobile {
+            display: none;
         }
 
         .header-desktop {
@@ -370,8 +413,7 @@
         }
 
         .simular-saldo-fgts {
-            margin: 10px 0;
-            padding: 10px 0;
+            margin: 20px 0;
             width: 60%;
             height: 100px;
             display: flex;
@@ -532,12 +574,14 @@
         }
 
         .card-avaliacao {
-            width: 25%;
+            width: 45%;
+            max-width: 400px;
             min-height: 100px;
             border-radius: 10px;
             background-color: white;
             box-sizing: border-box;
             padding: 20px;
+            margin: 10px;
         }
 
         .circle-image {
@@ -639,13 +683,21 @@
             -ms-transform: rotate(45deg);
             -webkit-transform: rotate(45deg);
         }
+
+        .carousel-control-prev-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+        }
+
+        .carousel-control-next-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+        }
     </style>
     <script>
         function redirect(id) {
             const inputText = document.getElementById(id);
             if (!!inputText && inputText.value.length > 0) {
                 const url = `https://api.whatsapp.com/send?phone=555139338465&text=${encodeURI(`Meu valor de saldo no fgts é R$ ${parseFloat(inputText.value).toFixed(2)}`)}`;
-            window.open(url, '_blank').focus();
+                window.open(url, '_blank').focus();
             }
         }
     </script>
@@ -725,9 +777,8 @@
                             </a>
                         </div>
                     </div>
-                    <div style="width: 50%; text-align: end;">
-                        <img src="/image/mulher.png"
-                            style="width: 300px; transform: scale(1.5); margin-top: 120px; margin-right: 350px;">
+                    <div class="full-largura" style="text-align: center; align-items: center;">
+                        <img src="/image/mulher.png" style="width: 300px; margin-top: 80px;">
                     </div>
                 </div>
             </div>
@@ -743,13 +794,13 @@
                         style="height: 40px; padding: 0 10px; border: 1px solid rgba(56, 56, 56, 0.452); border-radius: 5px 0 0 5px; border-right: none; display: flex; justify-content: space-between; align-items: center;">
                         <span style="margin-right: 20px; width: 5%; color: #458afd; font-size: 20px;">R$</span>
                         <input id="simular-primeiro" type="text"
-                            style="font-size: 20px; width: 85%; border: none; outline: none; height: 90%;"
+                            style="font-size: 16px; width: 85%; border: none; outline: none; height: 90%;"
                             placeholder="A partir de R$500,00">
                     </div>
                     <button onclick="redirect('simular-primeiro')" class="background-color-change" style="color: white;
                     background-color: #458afd;
                     width: 120px;
-                    height: 42px;
+                    height: 40px;
                     font-size: 19px;
                     border-radius: 0 5px 5px 0;
                     border: none;">Simular</button>
@@ -816,7 +867,8 @@
             <div class="container-como-obter">
                 <div class="full-largura como-obter-responsive">
                     <div style="height: 100%;">
-                        <img src="/image/homem-terno.png" style="width: 500px;">
+                        <img class="segunda-pessoa-desktop" src="/image/homem-terno.png" style="width: 500px;">
+                        <img class="segunda-pessoa-mobile" src="/image/mulher-mobile.png" style="width: 370px;">
                     </div>
                     <div class="tutorial-como-obter">
                         <div class="line" style="background-color: #fcb813;"></div>
@@ -863,7 +915,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div style="color: #fcb813; font-size: 40px; font-weight: bold;">Dinheiro na conta!</div>
+                        <div style="color: #fcb813; font-size: 30px; font-weight: bold;">Dinheiro na conta!</div>
                     </div>
                 </div>
             </div>
@@ -871,8 +923,8 @@
             <div style="width: 100%; background-color: #f9f9fa; display: flex; justify-content: center;">
                 <div class="container-faq">
                     <div style="margin-top: 30px; display: flex; flex-direction: column; align-items: center;">
-                        <span style="text-align: center; font-size: 20px; color: #fcb813;">FAQ</span>
-                        <span style="text-align: center; font-size: 35px; color: #458afd;">Dúvidas frequentes</span>
+                        <span style="text-align: center; font-size: 16px; color: #fcb813;">FAQ</span>
+                        <span style="text-align: center; font-size: 25px; color: #458afd;">Dúvidas frequentes</span>
                     </div>
                     <div class="container-duvidas">
                         <div class="duvidas left">
@@ -946,8 +998,7 @@
 
                     <div class="container-o-que-dizem-sobre-nos">
                         <div class="line" style="background-color: #fcb813; margin: 10px 0; min-width: 50px;"></div>
-                        <div style="font-size: 40px; color: #458afd;">O que dizem</div>
-                        <div style="font-size: 40px; color: #458afd;">da gente.</div>
+                        <div style="font-size: 30px; color: #458afd;">O que dizem da gente.</div>
 
                         <div style="color: rgb(49, 49, 49); font-size: 20px; margin-top: 10px;">
                             A Seguir os depoimentos de nossos clientes após
@@ -956,82 +1007,296 @@
                             conseguirem a antecipação do FGTS.
                         </div>
                     </div>
-                    <div class="card-avaliacao">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="width: 70%; display: flex; justify-content: flex-start;">
-                                <div class="circle-image man"></div>
-                                <div
-                                    style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
-                                    <span style="color: #187896;">João Bahr</span>
-                                    <span style="color: #fcb813;">Motorista</span>
+                    <div class="carroseul-depoimentos-desktop" style="width: 60%;">
+                        <div class="card-avaliacao">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="width: 70%; display: flex; justify-content: flex-start;">
+                                    <div class="circle-image man"></div>
+                                    <div
+                                        style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                        <span style="color: #187896;">João Bahr</span>
+                                        <span style="color: #fcb813;">Motorista</span>
+                                    </div>
+                                </div>
+                                <div style="width: 30%; display: flex; justify-content: center;">
+                                    <img src="/image/quotes.png">
                                 </div>
                             </div>
-                            <div style="width: 30%; display: flex; justify-content: center;">
-                                <img src="/image/quotes.png">
+                            <div style="display: flex; margin: 10px 0;">
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                            </div>
+                            <div>
+                                <p class="paragrafo-avaliacao">Precisava reformar meu telhado, não sabia da
+                                    possibilidade de
+                                    usar o FGTS como garantia de empréstimo. O processo foi muito rápido e prático e o
+                                    valor
+                                    caiu em 30 minutos. As meninas são atenciosas e esclarecem bem as duvidas.</p>
                             </div>
                         </div>
-                        <div style="display: flex; margin: 10px 0;">
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                        </div>
-                        <div>
-                            <p class="paragrafo-avaliacao">Precisava reformar meu telhado, não sabia da possibilidade de
-                                usar o FGTS como garantia de empréstimo. O processo foi muito rápido e prático e o valor
-                                caiu em 30 minutos. As meninas são atenciosas e esclarecem bem as duvidas.</p>
+
+                        <div class="card-avaliacao">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="width: 70%; display: flex; justify-content: flex-start;">
+                                    <div class="circle-image woman"></div>
+                                    <div
+                                        style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                        <span style="color: #187896;">Sandra Langer</span>
+                                        <span style="color: #fcb813;">Segurança</span>
+                                    </div>
+                                </div>
+                                <div style="width: 30%; display: flex; justify-content: center;">
+                                    <img src="/image/quotes.png">
+                                </div>
+                            </div>
+                            <div style="display: flex; margin: 10px 0;">
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                                <span class="material-icons" style="color: #fcb813;">
+                                    star_rate
+                                </span>
+                            </div>
+                            <div>
+                                <p class="paragrafo-avaliacao">Consegui dar a entrada em um terreno graças a antecipação
+                                    do
+                                    FGTS. A Tem me ajudou em todo o processo, até o valor cair em minha conta. Muito
+                                    grata a
+                                    eles.</p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card-avaliacao">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <div style="width: 70%; display: flex; justify-content: flex-start;">
-                                <div class="circle-image woman"></div>
-                                <div
-                                    style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
-                                    <span style="color: #187896;">Sandra Langer</span>
-                                    <span style="color: #fcb813;">Segurança</span>
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                                <div class="card-avaliacao">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="width: 70%; display: flex; justify-content: flex-start;">
+                                            <div class="circle-image woman"></div>
+                                            <div
+                                                style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                                <span style="color: #187896;">Sandra Langer</span>
+                                                <span style="color: #fcb813;">Segurança</span>
+                                            </div>
+                                        </div>
+                                        <div style="width: 30%; display: flex; justify-content: center;">
+                                            <img src="/image/quotes.png">
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; margin: 10px 0;">
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p class="paragrafo-avaliacao">Consegui dar a entrada em um terreno graças a
+                                            antecipação
+                                            do
+                                            FGTS. A Tem me ajudou em todo o processo, até o valor cair em minha conta.
+                                            Muito
+                                            grata a
+                                            eles.</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div style="width: 30%; display: flex; justify-content: center;">
-                                <img src="/image/quotes.png">
+                            <div class="carousel-item">
+                                <div class="card-avaliacao">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="width: 70%; display: flex; justify-content: flex-start;">
+                                            <div class="circle-image man"></div>
+                                            <div
+                                                style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                                <span style="color: #187896;">João Bahr</span>
+                                                <span style="color: #fcb813;">Motorista</span>
+                                            </div>
+                                        </div>
+                                        <div style="width: 30%; display: flex; justify-content: center;">
+                                            <img src="/image/quotes.png">
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; margin: 10px 0;">
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p class="paragrafo-avaliacao">Precisava reformar meu telhado, não sabia da
+                                            possibilidade de
+                                            usar o FGTS como garantia de empréstimo. O processo foi muito rápido e
+                                            prático e o
+                                            valor
+                                            caiu em 30 minutos. As meninas são atenciosas e esclarecem bem as duvidas.
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div style="display: flex; margin: 10px 0;">
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                            <span class="material-icons" style="color: #fcb813;">
-                                star_rate
-                            </span>
-                        </div>
-                        <div>
-                            <p class="paragrafo-avaliacao">Consegui dar a entrada em um terreno graças a antecipação do
-                                FGTS. A Tem me ajudou em todo o processo, até o valor cair em minha conta. Muito grata a
-                                eles.</p>
-                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
 
+                    <!-- <div id="carouselExampleIndicators" class="carousel slide carroseul-depoimentos-mobile"
+                        data-ride="carousel" style="margin-bottom: 200px;">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="card-avaliacao">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="width: 70%; display: flex; justify-content: flex-start;">
+                                            <div class="circle-image woman"></div>
+                                            <div
+                                                style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                                <span style="color: #187896;">Sandra Langer</span>
+                                                <span style="color: #fcb813;">Segurança</span>
+                                            </div>
+                                        </div>
+                                        <div style="width: 30%; display: flex; justify-content: center;">
+                                            <img src="/image/quotes.png">
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; margin: 10px 0;">
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p class="paragrafo-avaliacao">Consegui dar a entrada em um terreno graças a
+                                            antecipação
+                                            do
+                                            FGTS. A Tem me ajudou em todo o processo, até o valor cair em minha conta.
+                                            Muito
+                                            grata a
+                                            eles.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card-avaliacao">
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        <div style="width: 70%; display: flex; justify-content: flex-start;">
+                                            <div class="circle-image man"></div>
+                                            <div
+                                                style="margin-left: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                                <span style="color: #187896;">João Bahr</span>
+                                                <span style="color: #fcb813;">Motorista</span>
+                                            </div>
+                                        </div>
+                                        <div style="width: 30%; display: flex; justify-content: center;">
+                                            <img src="/image/quotes.png">
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; margin: 10px 0;">
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                        <span class="material-icons" style="color: #fcb813;">
+                                            star_rate
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <p class="paragrafo-avaliacao">Precisava reformar meu telhado, não sabia da
+                                            possibilidade de
+                                            usar o FGTS como garantia de empréstimo. O processo foi muito rápido e
+                                            prático e o
+                                            valor
+                                            caiu em 30 minutos. As meninas são atenciosas e esclarecem bem as duvidas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div> -->
                 </div>
             </div>
 
@@ -1050,11 +1315,11 @@
 
                     <div style="display: flex;">
                         <div class="input-valor-fgts"
-                            style="box-shadow: 0 0 10px 10px rgba(128, 128, 128, 0.13); background-color: white; width: 250px; height: 40px; padding: 0 10px; border: 1px solid rgba(56, 56, 56, 0.452); border-radius: 5px 0 0 5px; border-right: none; display: flex; justify-content: space-between; align-items: center;">
+                            style="box-shadow: 0 0 10px 10px rgba(128, 128, 128, 0.13); background-color: white; width: 250px; height: 42px; padding: 0 10px; border: 1px solid rgba(56, 56, 56, 0.452); border-radius: 5px 0 0 5px; border-right: none; display: flex; justify-content: space-between; align-items: center;">
                             <span
                                 style="margin-right: 20px; font-weight: 300; width: 5%; color: #458afd; font-size: 20px;">R$</span>
                             <input id="simular-segundo" type="text"
-                                style="font-size: 20px; width: 85%; border: none; outline: none; height: 90%;"
+                                style="font-size: 16px; width: 85%; border: none; outline: none; height: 90%;"
                                 placeholder="A partir de R$500,00">
                         </div>
                         <button onclick="redirect('simular-segundo')" style="color: white;
@@ -1092,8 +1357,8 @@
                     <div class="coluna-footer full-largura-detalhes">
                         <span class="footer-title">Siga nós</span>
                         <div class="footer-item-list" style="display: flex; justify-content: center; width: 100%;">
-                            <a href="https://instagram.com/temsolucoesfinanceiras?utm_medium=copy_link" style="margin: 10px; font-size: 20px; cursor: pointer;"
-                                class="fa fa-instagram"></a>
+                            <a href="https://instagram.com/temsolucoesfinanceiras?utm_medium=copy_link"
+                                style="margin: 10px; font-size: 20px; cursor: pointer;" class="fa fa-instagram"></a>
                         </div>
                     </div>
                 </div>
@@ -1132,6 +1397,16 @@
             </div>
 
         </main>
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
         <footer></footer>
     </section>
 </body>
