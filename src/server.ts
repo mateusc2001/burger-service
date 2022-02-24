@@ -8,7 +8,7 @@ const port = 2020;
 
 app.listen(process.env.PORT || port);
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(`${__dirname}/front/teste.html`);
 });
 
